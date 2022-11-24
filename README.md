@@ -1,7 +1,7 @@
 # A Pomodoro Timer Built in JavaFX
 
 ## Description
-The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.[1] It uses a kitchen timer to break work into intervals, typically 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer Cirillo used as a university student.
+The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It uses a kitchen timer to break work into intervals, typically 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for tomato, after the tomato-shaped kitchen timer Cirillo used as a university student.
 
 The original technique has six steps:
 1. Decide on the task to be done.
@@ -17,8 +17,4 @@ Once the long break is finished, return to step 2.
 - [ ] The number of tasks in the list corresponds to how many times the timer will run.
 - [ ] A short break will happen after a task is completed, but a long break will occur after 4 tasks are done.
 - [ ] When timer reaches zero, remove a task from the list.
-<<<<<<< HEAD
 - [X] Set up basic UI for Pomodoro Timer.
-=======
-- [X] Set up basic UI for Pomodoro Timer.# A Pomodoro Timer Built in JavaFX
->>>>>>> branch 'main' of https://github.com/nielmin/jomatotime.git
