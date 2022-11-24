@@ -26,6 +26,8 @@ public class MainController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		timer.setText("25:00");
 		banner.setText("Time to focus!");
 	}
 	
@@ -36,14 +38,17 @@ public class MainController implements Initializable{
 	}
 	
 	public void pomodoro() {
+		timer.setText("25:00");
 		banner.setText("Time to focus!");
 	}
 	
 	public void shortBreak() {
+		timer.setText("05:00");
 		banner.setText("Time for a short break.");
 	}
 	
 	public void longBreak() {
+		timer.setText("15:00");
 		banner.setText("Time for a long break!");
 	}
 }
