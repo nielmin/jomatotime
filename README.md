@@ -1,1 +1,1 @@
-# A Pomodoro Timer built in JavaFX
+# A Pomodoro Timer Built in JavaFX
