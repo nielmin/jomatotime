@@ -13,7 +13,7 @@ The original technique has six steps:
 Once the long break is finished, return to step 2.
 
 ### TODO
-- [ ] Implement a countdown timer from default values.
+- [X] Implement a countdown timer from default values.
 - [ ] The number of tasks in the list corresponds to how many times the timer will run.
 - [ ] A short break will happen after a task is completed, but a long break will occur after 4 tasks are done.
 - [ ] When timer reaches zero, remove a task from the list.
