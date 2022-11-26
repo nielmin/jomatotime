@@ -24,6 +24,7 @@ public class MainController implements Initializable{
 	@FXML private ObservableList<String> taskList;
 	@FXML private TextField task;
 	
+	//I changed something
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
