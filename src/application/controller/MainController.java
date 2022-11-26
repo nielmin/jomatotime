@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 public class MainController implements Initializable{
 	@FXML private Label timer;
@@ -19,12 +20,14 @@ public class MainController implements Initializable{
 	@FXML private Button lBreak;
 	@FXML private Button start;
 	@FXML private Button addTask;
+	@FXML private Text timerHrs;
+	@FXML private Text timerSec;
 	
 	@FXML private ListView<String> tasks;
 	@FXML private ObservableList<String> taskList;
 	@FXML private TextField task;
 	
-	//I changed something
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -40,16 +43,22 @@ public class MainController implements Initializable{
 	
 	public void pomodoro() {
 		timer.setText("25:00");
+		timerHrs.setText("25");
+		timerSec.setText("00");
 		banner.setText("Time to focus!");
 	}
 	
 	public void shortBreak() {
 		timer.setText("05:00");
+		timerHrs.setText("05");
+		timerSec.setText("00");
 		banner.setText("Time for a short break.");
 	}
 	
 	public void longBreak() {
 		timer.setText("15:00");
+		timerHrs.setText("15");
+		timerSec.setText("00");
 		banner.setText("Time for a long break!");
 	}
 }
