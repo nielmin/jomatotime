@@ -3,6 +3,7 @@ package application.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.model.CDTimer;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -39,82 +40,21 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 		timerMin.setText("00");
 		timerSec.setText("05");
 		banner.setText("Time to focus!");
+		
 	}
 	
 	public void handle(ActionEvent event) {
-		//System.out.println("Start Button works");
-		String minutes = timerMin.getText();
-		String seconds = timerSec.getText();
-		
-		
-			try {
-			Thread Timer = new Thread( new Task(){                // put the task in its own thread
-			@Override
-			protected String call() throws Exception {
-		// convert minutes to seconds and while i < total seconds add to the total time
-				int j = Integer.valueOf(seconds) + (Integer.valueOf(minutes)*60);
-				int count = 0;
-				int b = 1;
-				int secTime = Integer.valueOf(seconds);
-				if (secTime == 0) {
-					secTime = 60;
-				}
-				String elapsed;
-				if(Integer.valueOf(minutes) > 0) {
-				 elapsed = String.valueOf(Integer.valueOf(minutes)-1);
-				}
-				else {
-					 elapsed = String.valueOf(Integer.valueOf(minutes));
-				}
-				//while(true) {
-					for(int i = j; i >= 0; i--) {
-						count++;
-					if(count % 60 == 0) 
-					{
-						elapsed = String.valueOf(Integer.valueOf(elapsed)-b);
-						b++;
-						
-						System.out.println(i + " " + b + " " + elapsed + " " + secTime);
-						
-						secTime = 60;
-						
-					}
-					final String fsec = String.valueOf(secTime);
-					secTime--;
-					final String fmin = elapsed;
-					final int counter = count;
-					
-
-					// update the label on the JavaFx Application Thread!
-					Platform.runLater(new Runnable() {
-			            @Override
-			            public void run() {
-			    
-			            	timerMin.setText(fmin);
-			            	
-			            	timerSec.setText(fsec);
-			            	//System.out.println(counter);
-			            }
-			        });
-					Thread.sleep(1000);
-				
-			}
-					return null;
-			}
-		});													
-		
+		CDTimer task01 = new CDTimer(timerMin, timerSec);
+		Thread Timer = new Thread(task01);
 		// init and run the new thread
 		Timer.setDaemon(true);									
 		Timer.start();
-		Thread.sleep(1000);
-		}catch (InterruptedException e) {
-			e.printStackTrace();
-	}
-	}
+}
 	
 	public void addTask() {
 		if (task.getText() != "") {
 			tasks.getItems().add(task.getText());
+			task.setText("");
 		}
 	}
 	
@@ -137,6 +77,16 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 		timerMin.setText("15");
 		timerSec.setText("00");
 		banner.setText("Time for a long break!");
+	}
+	public void removeTask() {
+
+		if (timerMin.getText().equals("0") && timerSec.getText().equals("0")) {
+			System.out.println("Task remove");
+			tasks.getItems().remove(0);
+		}
+		else {
+			System.out.println("Task not removed");
+		}
 	}
 }
 
