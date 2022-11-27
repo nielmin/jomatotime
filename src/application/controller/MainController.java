@@ -36,13 +36,13 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		//timer.setText("25:00");
-		timerMin.setText("25");
-		timerSec.setText("00");
+		timerMin.setText("00");
+		timerSec.setText("05");
 		banner.setText("Time to focus!");
 	}
 	
 	public void handle(ActionEvent event) {
-		System.out.println("Start Button works");
+		//System.out.println("Start Button works");
 		String minutes = timerMin.getText();
 		String seconds = timerSec.getText();
 		
@@ -55,8 +55,17 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 				int j = Integer.valueOf(seconds) + (Integer.valueOf(minutes)*60);
 				int count = 0;
 				int b = 1;
-				int secTime = 60;
-				String elapsed = String.valueOf(Integer.valueOf(minutes)-1);
+				int secTime = Integer.valueOf(seconds);
+				if (secTime == 0) {
+					secTime = 60;
+				}
+				String elapsed;
+				if(Integer.valueOf(minutes) > 0) {
+				 elapsed = String.valueOf(Integer.valueOf(minutes)-1);
+				}
+				else {
+					 elapsed = String.valueOf(Integer.valueOf(minutes));
+				}
 				//while(true) {
 					for(int i = j; i >= 0; i--) {
 						count++;
