@@ -65,7 +65,7 @@ public class CDTimer implements Runnable {
 				public void run() {
 					timerMin.setText(fmin);
 	            	timerSec.setText(fsec);
-	            	removeTask();
+	            	//removeTask();
 				}		
 			});
 			try {
@@ -79,13 +79,13 @@ public class CDTimer implements Runnable {
 	}
 	
 	public void removeTask() {
-		if (timerMin.getText().equals("0") && timerSec.getText().equals("0")) {
-			System.out.println("Task remove");
-			tasks.getItems().remove(0);
+		if (tasks.getItems().isEmpty()) {
+			System.out.println("Task list is empty");
 
 		}
 		else {
-			System.out.println("Task not removed");
+			//tasks.getItems().remove(0);
+			System.out.println("Tasks list has something.");
 		}
 	}
 
