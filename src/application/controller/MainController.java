@@ -34,8 +34,8 @@ public class MainController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		//timer.setText("25:00");
-		timerMin.setText("01");
-		timerSec.setText("00");
+		timerMin.setText("00");
+		timerSec.setText("10");
 		banner.setText("Time to focus!");
 		
 //		String time = "00:05:00";

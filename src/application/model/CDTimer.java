@@ -53,6 +53,10 @@ public class CDTimer implements Runnable {
 				System.out.println(i + " " + b + " " + elapsed + " " + secTime);
 				
 				secTime = 60;
+				if (Integer.valueOf(elapsed) == -1) {
+					elapsed = "0";
+					secTime = 1;
+				}
 				
 			}
 			final String fsec = String.valueOf(secTime);
