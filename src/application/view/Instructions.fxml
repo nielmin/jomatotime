@@ -5,23 +5,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InstructionsController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InstructionsController">
    <children>
-      <Button fx:id="Cont" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#handle" prefHeight="41.0" prefWidth="135.0" text="Continue">
+      <Button fx:id="back" layoutX="172.0" layoutY="454.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="41.0" prefWidth="135.0" text="Back" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="149.0" layoutY="67.0" prefHeight="94.0" prefWidth="202.0" text="Welcome">
+      <Label alignment="CENTER" layoutX="61.0" layoutY="81.0" prefHeight="80.0" prefWidth="371.0" text="How to Use Jomato Timer" textAlignment="CENTER">
          <font>
-            <Font size="45.0" />
+            <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="61.0" layoutY="161.0" prefHeight="46.0" prefWidth="371.0" text="Choose a single task you will focus on and write it down" />
-      <Label alignment="CENTER" layoutX="54.0" layoutY="207.0" prefHeight="46.0" prefWidth="371.0" text="Work on the task for 25 minutes until the timer rings" />
-      <Label alignment="CENTER" layoutX="54.0" layoutY="253.0" prefHeight="46.0" prefWidth="371.0" text="Take a short 5 minute break" />
-      <Label alignment="CENTER" layoutX="54.0" layoutY="300.0" prefHeight="46.0" prefWidth="371.0" text="Work for another 25 minutes" />
-      <Label alignment="CENTER" layoutX="61.0" layoutY="346.0" prefHeight="46.0" prefWidth="400.0" text="After 3-4 work periods of 25 minutes, take a longer 20-30 minute break" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="161.0" prefHeight="46.0" prefWidth="371.0" text="Choose a single task you will focus on and write it down">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="207.0" prefHeight="46.0" prefWidth="371.0" text="Work on the task for 25 minutes until the timer rings">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="253.0" prefHeight="46.0" prefWidth="371.0" text="Take a short 5 minute break">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="299.0" prefHeight="46.0" prefWidth="371.0" text="Work for another 25 minutes">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="345.0" prefHeight="46.0" prefWidth="451.0" text="After 4 work periods of 25 minutes, take a longer 15 minute break" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

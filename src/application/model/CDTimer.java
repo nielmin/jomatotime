@@ -22,15 +22,12 @@ public class CDTimer implements Runnable {
 	private String[] parts;
 	
 	public CDTimer (Label timer, ListView<String> tasks) {
-//		this.timerMin = min;
-//		this.timerSec = sec;
 		this.timer = timer;
 		this.tasks = tasks;
 	}
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		this.betterCountDown();
 		
 	}
@@ -85,5 +82,5 @@ public class CDTimer implements Runnable {
 			System.out.println("Tasks list has something.");
 		}
 	}
-
+	
 }
