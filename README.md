@@ -16,5 +16,5 @@ Once the long break is finished, return to step 2.
 - [X] Implement a countdown timer from default values.
 - [ ] The number of tasks in the list corresponds to how many times the timer will run.
 - [ ] A short break will happen after a task is completed, but a long break will occur after 4 tasks are done.
-- [ ] When timer reaches zero, remove a task from the list.
+- [X] When timer reaches zero, remove a task from the list.
 - [X] Set up basic UI for Pomodoro Timer.
