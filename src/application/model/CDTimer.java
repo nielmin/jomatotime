@@ -54,7 +54,7 @@ public class CDTimer implements Runnable {
 			final String fsec = String.valueOf(secTime);
 			secTime--;
 			final String fmin = elapsed;
-			final int counter = count;
+			//final int counter = count;
 			
 			Platform.runLater(new Runnable() {
 				@Override

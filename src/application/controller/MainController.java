@@ -4,9 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.model.CDTimer;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
