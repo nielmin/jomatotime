@@ -1,94 +1,87 @@
 package application.model;
 
+import java.text.DecimalFormat;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
 public class CDTimer implements Runnable {
+	@FXML private Label timer;
 	@FXML private Text timerMin;
 	@FXML private Text timerSec;
 	@FXML private ListView<String> tasks;
-
 	
-	public CDTimer (Text min, Text sec, ListView<String> tasks) {
-		this.timerMin = min;
-		this.timerSec = sec;
+	private String ddMin;
+	private String ddSec;
+
+	private int min;
+	private int sec;
+	private String[] parts;
+	
+	public CDTimer (Label timer, ListView<String> tasks) {
+//		this.timerMin = min;
+//		this.timerSec = sec;
+		this.timer = timer;
 		this.tasks = tasks;
 	}
 	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		this.countDown();
+		this.betterCountDown();
 		
 	}
-	public void countDown() 
-	{
-		String minutes = timerMin.getText();
-		String seconds = timerSec.getText();
-		
-		int j = Integer.valueOf(seconds) + (Integer.valueOf(minutes)*60);
-		int count = 0;
-		int b = 1;
-		int secTime = Integer.valueOf(seconds);
-		if (secTime == 0) {
-			secTime = 60;
-		}
-		String elapsed;
-		if(Integer.valueOf(minutes) > 0) {
-		 elapsed = String.valueOf(Integer.valueOf(minutes)-1);
-		}
-		else {
-			 elapsed = String.valueOf(Integer.valueOf(minutes));
-		}
+	
+	public void betterCountDown() {
+		DecimalFormat dFormat = new DecimalFormat("00");
 
-		for(int i = j; i >= 0; i--) {
-				count++;
-			if(count % 60 == 0) 
-			{
-				elapsed = String.valueOf(Integer.valueOf(elapsed)-b);
-				b++;
-				
-				System.out.println(i + " " + b + " " + elapsed + " " + secTime);
-				
-				secTime = 60;
-				if (Integer.valueOf(elapsed) == -1) {
-					elapsed = "0";
-					secTime = 1;
-				}
-				
+		while (true) {
+			parts = timer.getText().split(":");
+		
+			ddMin = parts[0];
+			ddSec = parts[1];
+			min = Integer.parseInt(ddMin);
+			sec = Integer.parseInt(ddSec);
+
+			sec--;
+
+			ddMin = dFormat.format(min);
+			ddSec = dFormat.format(sec);
+			if (sec == -1) {
+				sec = 59;
+				min--;
+				ddMin = dFormat.format(min);
+				ddSec = dFormat.format(sec);
 			}
-			final String fsec = String.valueOf(secTime);
-			secTime--;
-			final String fmin = elapsed;
-			//final int counter = count;
-			
+			if (min <= 0 && sec <= 0) {
+				break;
+			}
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
-					timerMin.setText(fmin);
-	            	timerSec.setText(fsec);
-	            	//removeTask();
+					timer.setText(ddMin + ":" + ddSec);
 				}		
 			});
+			System.out.println(ddMin + ":" + ddSec);
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 		}
-		
 	}
-	
+		
 	public void removeTask() {
+
 		if (tasks.getItems().isEmpty()) {
 			System.out.println("Task list is empty");
 
 		}
 		else {
-			//tasks.getItems().remove(0);
+			tasks.getItems().remove(0);
 			System.out.println("Tasks list has something.");
 		}
 	}

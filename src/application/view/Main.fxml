@@ -6,21 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
       <ListView fx:id="tasks" layoutX="122.0" layoutY="228.0" prefHeight="190.0" prefWidth="260.0" />
       <Button fx:id="sBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="70.0" mnemonicParsing="false" onAction="#shortBreak" text="Short Break" textAlignment="CENTER" />
       <Button fx:id="pomodoro" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="70.0" mnemonicParsing="false" onAction="#pomodoro" text="Pomodoro" textAlignment="CENTER" />
-      <Button fx:id="lBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="344.0" layoutY="70.0" mnemonicParsing="false" onAction="#longBreak" text="Long Break" textAlignment="CENTER" />
+      <Button fx:id="lBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="70.0" mnemonicParsing="false" onAction="#longBreak" text="Long Break" textAlignment="CENTER" />
       <Button fx:id="addTask" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="462.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" textAlignment="CENTER" />
-      <Label fx:id="timer" alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="14.0" textAlignment="CENTER">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Label>
-      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="164.0" mnemonicParsing="false" onAction="#startTasks" prefHeight="0.0" prefWidth="93.0" text="Start" textAlignment="CENTER">
+      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="165.0" mnemonicParsing="false" onAction="#startTasks" prefHeight="0.0" prefWidth="93.0" text="Start" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -31,21 +25,11 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Text fx:id="timerMin" layoutX="206.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="42.046875">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Text>
-      <Text fx:id="timerSec" layoutX="253.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Text>
-      <Text fx:id="timerMin1" layoutX="246.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" wrappingWidth="10.046875">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Text>
       <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="553.0" prefHeight="17.0" prefWidth="175.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="timer" alignment="CENTER" contentDisplay="CENTER" layoutX="176.0" layoutY="103.0" prefHeight="51.0" prefWidth="150.0" text="00:00" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
