@@ -2,15 +2,19 @@ package application.model;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
 public class CDTimer implements Runnable {
 	@FXML private Text timerMin;
 	@FXML private Text timerSec;
+	@FXML private ListView<String> tasks;
+
 	
-	public CDTimer (Text min, Text sec) {
+	public CDTimer (Text min, Text sec, ListView<String> tasks) {
 		this.timerMin = min;
 		this.timerSec = sec;
+		this.tasks = tasks;
 	}
 	
 	@Override
@@ -61,6 +65,7 @@ public class CDTimer implements Runnable {
 				public void run() {
 					timerMin.setText(fmin);
 	            	timerSec.setText(fsec);
+	            	removeTask();
 				}		
 			});
 			try {
@@ -72,15 +77,16 @@ public class CDTimer implements Runnable {
 		}
 		
 	}
-}
 	
-//	public void removeTask() {
-//		if (timeMin.getText().equals("0") && timeSec.getText().equals("0")) {
-//			System.out.println("Task remove");
-//		}
-//		else {
-//			System.out.println("Task not removed");
-//		}
-//	}
-//
-//}
+	public void removeTask() {
+		if (timerMin.getText().equals("0") && timerSec.getText().equals("0")) {
+			System.out.println("Task remove");
+			tasks.getItems().remove(0);
+
+		}
+		else {
+			System.out.println("Task not removed");
+		}
+	}
+
+}

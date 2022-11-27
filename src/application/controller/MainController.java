@@ -42,7 +42,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent>{
 	}
 	
 	public void handle(ActionEvent event) {
-		CDTimer task01 = new CDTimer(timerMin, timerSec);
+		CDTimer task01 = new CDTimer(timerMin, timerSec, tasks);
 		Thread Timer = new Thread(task01);
 		// init and run the new thread
 		Timer.setDaemon(true);									
