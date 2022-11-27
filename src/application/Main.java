@@ -8,21 +8,47 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	/*
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("view/Main.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("view/Instructions.fxml"));
 			Scene scene = new Scene(root,500,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Jomato Timer");
+			//primaryStage.setTitle("Jomato Timer");
 			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+	*/
+public static Stage stage;
 	
+	@Override
+	public void start(Stage primaryStage) {
+		
+		stage = primaryStage;
+
+		try {
+
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("view/Instructions.fxml"));
+
+			AnchorPane layout = (AnchorPane) loader.load();
+
+			Scene scene = new Scene(layout);
+
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();	
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	public static void main(String[] args) {
 		launch(args);
 	}

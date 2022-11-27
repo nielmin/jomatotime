@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InstructionsController">
+   <children>
+      <Button fx:id="Cont" layoutX="179.0" layoutY="460.0" mnemonicParsing="false" onAction="#handle" prefHeight="41.0" prefWidth="135.0" text="Continue">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="149.0" layoutY="67.0" prefHeight="94.0" prefWidth="202.0" text="Welcome">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="61.0" layoutY="161.0" prefHeight="46.0" prefWidth="371.0" text="Choose a single task you will focus on and write it down" />
+      <Label alignment="CENTER" layoutX="54.0" layoutY="207.0" prefHeight="46.0" prefWidth="371.0" text="Work on the task for 25 minutes until the timer rings" />
+      <Label alignment="CENTER" layoutX="54.0" layoutY="253.0" prefHeight="46.0" prefWidth="371.0" text="Take a short 5 minute break" />
+      <Label alignment="CENTER" layoutX="54.0" layoutY="300.0" prefHeight="46.0" prefWidth="371.0" text="Work for another 25 minutes" />
+      <Label alignment="CENTER" layoutX="61.0" layoutY="346.0" prefHeight="46.0" prefWidth="400.0" text="After 3-4 work periods of 25 minutes, take a longer 20-30 minute break" />
+   </children>
 </AnchorPane>
