@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class InstructionsController {
+public class DoneController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -22,8 +22,9 @@ public class InstructionsController {
 		stage.setResizable(false);
 		stage.show();
 	}
-	public void switchToDone(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("../view/Done.fxml"));
+	
+	public void switchToHelp(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("../view/Instructions.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
