@@ -18,3 +18,8 @@ Once the long break is finished, return to step 2.
 - [ ] A short break will happen after a task is completed, but a long break will occur after 4 tasks are done.
 - [X] When timer reaches zero, remove a task from the list.
 - [X] Set up basic UI for Pomodoro Timer.
+- [X] Prevent multiple timers from starting through repeated button presses.
+- [X] Stop button to cancel current timer and reset to default.
+- [X] Added Credits page.
+- [X] Added Help page.
+- [X] Added Welcome page.
