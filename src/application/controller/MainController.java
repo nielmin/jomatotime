@@ -57,7 +57,12 @@ public class MainController implements Initializable {
 		}
 		else {
 			warning.setText("");
-			startCountDown();
+			if (countdown != null && countdown.isRunning()) {
+				warning.setText("Timer is already running");
+			}
+			else {
+				startCountDown();
+			}
 		}
 	}
 	
@@ -69,13 +74,9 @@ public class MainController implements Initializable {
 			removeTask();
 		});
 		
-		countdown.setOnCancelled(e -> {
-			System.out.println("Cancelded");
-		});
-	
-			thread = new Thread(countdown);
-			thread.setDaemon(true);			
-			thread.start();
+		thread = new Thread(countdown);
+		thread.setDaemon(true);			
+		thread.start();
 }
 	public void stopCountDown() {
 		if (countdown == null) {
