@@ -3,35 +3,32 @@ package application.model;
 import java.text.DecimalFormat;
 
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-public class CDTimer implements Runnable {
+public class CDTask extends Task<String>{
 	@FXML private Label timer;
 	@FXML private ListView<String> tasks;
 	
+	private String[] parts;
 	private String ddMin;
 	private String ddSec;
 
 	private int min;
 	private int sec;
-	private String[] parts;
 	
-	public CDTimer (Label timer, ListView<String> tasks) {
+	public CDTask(Label timer, ListView<String> tasks) {
 		this.timer = timer;
 		this.tasks = tasks;
 	}
 	
 	@Override
-	public void run() {
-			this.betterCountDown();
-	}
-	
-	public void betterCountDown() {
+	protected String call() throws Exception {
 		DecimalFormat dFormat = new DecimalFormat("00");
-
 		while (true) {
+			
 			parts = timer.getText().split(":");
 		
 			ddMin = parts[0];
@@ -43,13 +40,15 @@ public class CDTimer implements Runnable {
 
 			ddMin = dFormat.format(min);
 			ddSec = dFormat.format(sec);
+			
 			if (sec == -1) {
 				sec = 59;
 				min--;
 				ddMin = dFormat.format(min);
 				ddSec = dFormat.format(sec);
 			}
-		
+			updateValue(ddMin + ":" + ddSec);
+			
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -65,7 +64,10 @@ public class CDTimer implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
+			
+			//updateProgress(min*60+sec, min*60+sec);
 		}
+		return null;
 	}
+
 }
