@@ -66,9 +66,7 @@ public class MainController implements Initializable {
 			
 			startTasks();
 		});
-		//countdownTime = new CDTimer(timer, tasks);
 
-		
 		if (tasks.getItems().isEmpty()) {
 			warning.setText("Please enter a task...");
 		}
