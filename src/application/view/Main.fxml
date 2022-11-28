@@ -33,5 +33,6 @@
       </Label>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="545.0" mnemonicParsing="false" onAction="#switchToHelp" prefHeight="33.0" prefWidth="65.0" text="Help (?)" textAlignment="CENTER" />
       <Button layoutY="2.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="52.0" text="Back" />
+      <Button layoutX="26.0" layoutY="541.0" mnemonicParsing="false" onAction="#credit" prefHeight="33.0" prefWidth="65.0" text="Credits" />
    </children>
 </AnchorPane>

@@ -97,5 +97,12 @@ public class MainController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
+	public void credit(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("../view/Credits.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 }
 
