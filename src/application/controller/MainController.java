@@ -45,8 +45,7 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		timer.setText("00:10");
-		banner.setText("Time to focus!");
+		this.pomodoro();
 				
 	}
 	
@@ -79,6 +78,7 @@ public class MainController implements Initializable {
 			}
 			else {
 				thread.interrupt();
+				this.pomodoro();
 			}
 		}
 }
@@ -104,17 +104,28 @@ public class MainController implements Initializable {
 	}
 	
 	public void pomodoro() {
-		timer.setText("25:00");
+		/**
+		 * Default value for the timer.
+		 */
+//		timer.setText("25:00");
+		/*
+		 * Demo value for the timer.
+		 */
+		timer.setText("00:10");
 		banner.setText("Time to focus!");
 	}
 	
 	public void shortBreak() {
-		timer.setText("05:00");
+//		timer.setText("05:00");
+		timer.setText("00:05");
+
 		banner.setText("Time for a short break.");
 	}
 	
 	public void longBreak() {
-		timer.setText("15:00");
+//		timer.setText("15:00");
+		timer.setText("00:08");
+
 		banner.setText("Time for a long break!");
 	}
 	public void switchToHelp(ActionEvent event) throws IOException {

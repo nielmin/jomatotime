@@ -65,6 +65,7 @@ public class CDTask extends Task<String>{
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				System.out.println("Thread interrupted");
 			}
 			
 			//updateProgress(min*60+sec, min*60+sec);
