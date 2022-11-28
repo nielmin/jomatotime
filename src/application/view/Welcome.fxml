@@ -2,16 +2,28 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WelcomeController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WelcomeController">
    <children>
-      <Button layoutX="224.0" layoutY="373.0" mnemonicParsing="false" onAction="#handle" text="Button" />
-      <Label alignment="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="110.0" prefWidth="383.0" text="Welcome to Jomato Time">
+      <Button layoutX="196.0" layoutY="190.0" mnemonicParsing="false" onAction="#handle" text="Get to studying " />
+      <Label alignment="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="110.0" prefWidth="383.0" text="Welcome to Jomato Time" textFill="#ee7a7a">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
+      <ImageView fitHeight="163.0" fitWidth="155.0" layoutX="14.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../data/PngItem_615463.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="305.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../data/PngItem_1841817.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
