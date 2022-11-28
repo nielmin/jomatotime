@@ -28,6 +28,7 @@ public class MainController implements Initializable {
 	@FXML private Button sBreak;
 	@FXML private Button lBreak;
 	@FXML private Button start;
+	@FXML private Button cancel;
 	@FXML private Button addTask;
 	
 	@FXML private ListView<String> tasks;
@@ -49,39 +50,43 @@ public class MainController implements Initializable {
 				
 	}
 	
-	public void startTasks() {
-		
-		if (countdown != null && countdown.isRunning()) {
-			countdown.cancel();
-		}
-		countdown = new CDTask(timer, tasks);
-		countdown.setOnSucceeded(e -> {
-			removeTask();
-//			countdown.cancel(true);
-			this.shortBreak();
-			removeTask();
-//			countdown.cancel(true);
-			this.pomodoro();
-			
-			startTasks();
-		});
-
+	@FXML
+	public void handleStartButton() {
 		if (tasks.getItems().isEmpty()) {
 			warning.setText("Please enter a task...");
 		}
 		else {
 			warning.setText("");
-			if (thread == null || !thread.isAlive()) {
-				thread = new Thread(countdown);
-				thread.setDaemon(true);			
-				thread.start();
-			}
-			else {
-				thread.interrupt();
-				this.pomodoro();
-			}
+			startCountDown();
 		}
+	}
+	
+	public void startCountDown() {
+		
+		countdown = new CDTask(timer, tasks);
+
+		countdown.setOnSucceeded(e-> {
+			removeTask();
+		});
+		
+		countdown.setOnCancelled(e -> {
+			System.out.println("Cancelded");
+		});
+	
+			thread = new Thread(countdown);
+			thread.setDaemon(true);			
+			thread.start();
 }
+	public void stopCountDown() {
+		if (countdown == null) {
+			warning.setText("Timer wasn't started");
+		}
+		else {
+			warning.setText("");
+			countdown.cancel();
+			this.pomodoro();
+		}
+	}
 	
 	public void addTask() {
 		if (task.getText() != "") {
@@ -113,6 +118,8 @@ public class MainController implements Initializable {
 		 */
 		timer.setText("00:10");
 		banner.setText("Time to focus!");
+
+
 	}
 	
 	public void shortBreak() {
@@ -120,6 +127,7 @@ public class MainController implements Initializable {
 		timer.setText("00:05");
 
 		banner.setText("Time for a short break.");
+
 	}
 	
 	public void longBreak() {
@@ -127,6 +135,7 @@ public class MainController implements Initializable {
 		timer.setText("00:08");
 
 		banner.setText("Time for a long break!");
+
 	}
 	public void switchToHelp(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../view/Instructions.fxml"));

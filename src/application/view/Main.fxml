@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
       <ListView fx:id="tasks" layoutX="75.0" layoutY="219.0" prefHeight="200.0" prefWidth="350.0" />
       <Button fx:id="sBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="70.0" mnemonicParsing="false" onAction="#shortBreak" text="Short Break" textAlignment="CENTER" />
       <Button fx:id="pomodoro" alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="70.0" mnemonicParsing="false" onAction="#pomodoro" text="Pomodoro" textAlignment="CENTER" />
       <Button fx:id="lBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="70.0" mnemonicParsing="false" onAction="#longBreak" text="Long Break" textAlignment="CENTER" />
       <Button fx:id="addTask" alignment="CENTER" contentDisplay="CENTER" layoutX="222.0" layoutY="467.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" textAlignment="CENTER" />
-      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="168.0" mnemonicParsing="false" onAction="#startTasks" prefHeight="38.0" prefWidth="92.0" text="Start" textAlignment="CENTER">
+      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="38.0" prefWidth="92.0" text="Start" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
@@ -34,5 +34,10 @@
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="545.0" mnemonicParsing="false" onAction="#switchToHelp" prefHeight="33.0" prefWidth="65.0" text="Help (?)" textAlignment="CENTER" />
       <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="65.0" text="Back" />
       <Button layoutX="20.0" layoutY="545.0" mnemonicParsing="false" onAction="#credit" prefHeight="33.0" prefWidth="65.0" text="Credits" />
+      <Button fx:id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="266.0" layoutY="168.0" mnemonicParsing="false" onAction="#stopCountDown" prefHeight="38.0" prefWidth="92.0" text="Stop" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

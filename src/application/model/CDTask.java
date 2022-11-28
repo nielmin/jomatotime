@@ -12,6 +12,7 @@ public class CDTask extends Task<String>{
 	@FXML private Label timer;
 	@FXML private ListView<String> tasks;
 	
+	private String defaultTime;
 	private String[] parts;
 	private String ddMin;
 	private String ddSec;
@@ -27,9 +28,14 @@ public class CDTask extends Task<String>{
 	@Override
 	protected String call() throws Exception {
 		DecimalFormat dFormat = new DecimalFormat("00");
+		defaultTime = timer.getText();
 		while (true) {
-			if (isCancelled()) {
+			if (this.isCancelled()) {
+				System.out.println("Cancelled");
 				break;
+			}
+			else {
+				System.out.println("Not Cancelled");
 			}
 			parts = timer.getText().split(":");
 		
@@ -48,27 +54,27 @@ public class CDTask extends Task<String>{
 				min--;
 				ddMin = dFormat.format(min);
 				ddSec = dFormat.format(sec);
-			}
-			updateValue(ddMin + ":" + ddSec);
-			
+			}			
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
 					timer.setText(ddMin + ":" + ddSec);
+					if (isCancelled()) {
+						timer.setText(defaultTime);
+					}
 				}		
 			});
-
+			if (min == 0 && sec == 0) {
+				break;
+			}
 			try {
+		
 				Thread.sleep(1000);
-				if (min == 0 && sec == 0) {
-					break;
-				}
+
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-				System.out.println("Thread interrupted");
 			}
 			
-			//updateProgress(min*60+sec, min*60+sec);
 		}
 		return null;
 	}
