@@ -46,7 +46,8 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		this.pomodoro();
+		//this.pomodoro();
+		timer.setText("00:10");
 				
 	}
 	
@@ -113,27 +114,27 @@ public class MainController implements Initializable {
 		/**
 		 * Default value for the timer.
 		 */
-//		timer.setText("25:00");
+		timer.setText("25:00");
 		/*
 		 * Demo value for the timer.
 		 */
-		timer.setText("00:10");
+//		timer.setText("00:10");
 		banner.setText("Time to focus!");
 
 
 	}
 	
 	public void shortBreak() {
-//		timer.setText("05:00");
-		timer.setText("00:05");
+		timer.setText("05:00");
+//		timer.setText("00:05");
 
 		banner.setText("Time for a short break.");
 
 	}
 	
 	public void longBreak() {
-//		timer.setText("15:00");
-		timer.setText("00:08");
+		timer.setText("15:00");
+//		timer.setText("00:08");
 
 		banner.setText("Time for a long break!");
 
