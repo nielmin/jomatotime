@@ -38,6 +38,10 @@ public class MainController implements Initializable {
 	private Scene scene;
 	private Parent root;
 	
+	CDTask countdown;
+	CDTimer countdownTime;
+	
+	private Thread thread;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -47,19 +51,37 @@ public class MainController implements Initializable {
 	}
 	
 	public void startTasks() {
-		CDTask countdown = new CDTask(timer, tasks);
 		
+		if (countdown != null && countdown.isRunning()) {
+			countdown.cancel();
+		}
+		countdown = new CDTask(timer, tasks);
 		countdown.setOnSucceeded(e -> {
 			removeTask();
+//			countdown.cancel(true);
+			this.shortBreak();
+			removeTask();
+//			countdown.cancel(true);
+			this.pomodoro();
+			
+			startTasks();
 		});
-		Thread task01 = new Thread(countdown);
-		task01.setDaemon(true);							
+		//countdownTime = new CDTimer(timer, tasks);
+
+		
 		if (tasks.getItems().isEmpty()) {
 			warning.setText("Please enter a task...");
 		}
 		else {
 			warning.setText("");
-			task01.start();
+			if (thread == null || !thread.isAlive()) {
+				thread = new Thread(countdown);
+				thread.setDaemon(true);			
+				thread.start();
+			}
+			else {
+				thread.interrupt();
+			}
 		}
 }
 	

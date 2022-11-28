@@ -28,7 +28,9 @@ public class CDTask extends Task<String>{
 	protected String call() throws Exception {
 		DecimalFormat dFormat = new DecimalFormat("00");
 		while (true) {
-			
+			if (isCancelled()) {
+				break;
+			}
 			parts = timer.getText().split(":");
 		
 			ddMin = parts[0];
