@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.model.CDTask;
 import application.model.CDTimer;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,21 +41,25 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		timer.setText("25:00");
+		timer.setText("00:10");
 		banner.setText("Time to focus!");
 				
 	}
 	
 	public void startTasks() {
-		CDTimer task01 = new CDTimer(timer, tasks);
-		Thread Timer = new Thread(task01);
-		Timer.setDaemon(true);							
+		CDTask countdown = new CDTask(timer, tasks);
+		
+		countdown.setOnSucceeded(e -> {
+			removeTask();
+		});
+		Thread task01 = new Thread(countdown);
+		task01.setDaemon(true);							
 		if (tasks.getItems().isEmpty()) {
 			warning.setText("Please enter a task...");
 		}
 		else {
 			warning.setText("");
-			Timer.start();
+			task01.start();
 		}
 }
 	
@@ -65,6 +70,16 @@ public class MainController implements Initializable {
 		}
 		else {
 			warning.setText("No task was given...");
+		}
+	}
+	
+	public void removeTask() {
+		if (tasks.getItems().isEmpty()) {
+			System.out.println("Tasks List is empty");
+		}
+		else {
+			tasks.getItems().remove(0);
+			System.out.println("Task completed. Removing task...");
 		}
 	}
 	
