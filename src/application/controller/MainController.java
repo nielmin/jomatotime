@@ -70,7 +70,7 @@ public class MainController implements Initializable {
 				warning.setText("Timer is already running");
 			}
 			else {
-				System.out.println("First run of count down timer.");
+//				System.out.println("First run of count down timer.");
 				startCountDown();
 			}
 		}
