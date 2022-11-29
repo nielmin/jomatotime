@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import application.model.CDTask;
 import application.model.CDTimer;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,16 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
+
+	
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
+	CDTimer countdownTime;
+	CDTask countdown;
+
+	private Thread thread;
+	private ObservableList<String> tasksList = FXCollections.observableArrayList();
 	@FXML private Label timer;
 	@FXML private Label banner;
 	@FXML private Label warning;
@@ -30,25 +41,16 @@ public class MainController implements Initializable {
 	@FXML private Button start;
 	@FXML private Button cancel;
 	@FXML private Button addTask;
-	
-	@FXML private ListView<String> tasks;
-	@FXML private ObservableList<String> taskList;
 	@FXML private TextField task;
-	
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
-	
-	CDTask countdown;
-	CDTimer countdownTime;
-	
-	private Thread thread;
+	@FXML private ListView<String> tasks = new ListView<String>(tasksList);
+
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		//this.pomodoro();
 		timer.setText("00:10");
-				
+		tasks.setItems(tasksList);
 	}
 	
 	@FXML
@@ -92,7 +94,7 @@ public class MainController implements Initializable {
 	
 	public void addTask() {
 		if (task.getText() != "") {
-			tasks.getItems().add(task.getText());
+			tasksList.add(task.getText());
 			task.setText("");
 		}
 		else {
@@ -101,11 +103,11 @@ public class MainController implements Initializable {
 	}
 	
 	public void removeTask() {
-		if (tasks.getItems().isEmpty()) {
+		if (tasksList.isEmpty()) {
 			System.out.println("Tasks List is empty");
 		}
 		else {
-			tasks.getItems().remove(0);
+			tasksList.remove(0);
 			System.out.println("Task completed. Removing task...");
 		}
 	}
