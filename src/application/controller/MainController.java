@@ -27,11 +27,13 @@ public class MainController implements Initializable {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	CDTimer countdownTime;
-	CDTask countdown;
+//	private CDTimer countdownTime;
+	private CDTask countdown;
 
 	private Thread thread;
 	private ObservableList<String> tasksList = FXCollections.observableArrayList();
+	private ObservableList<String> doneList = FXCollections.observableArrayList("Hello", "World");
+
 	@FXML private Label timer;
 	@FXML private Label banner;
 	@FXML private Label warning;
@@ -43,13 +45,12 @@ public class MainController implements Initializable {
 	@FXML private Button addTask;
 	@FXML private TextField task;
 	@FXML private ListView<String> tasks = new ListView<String>(tasksList);
-
+	@FXML private ListView<String> done = new ListView<String>(doneList);
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		//this.pomodoro();
-		timer.setText("00:10");
 		tasks.setItems(tasksList);
 	}
 	
@@ -116,12 +117,14 @@ public class MainController implements Initializable {
 		/**
 		 * Default value for the timer.
 		 */
-		timer.setText("25:00");
+		timer.setText("00:10");
 		/*
 		 * Demo value for the timer.
 		 */
 //		timer.setText("00:10");
-		banner.setText("Time to focus!");
+//		banner.setText("Time to focus!");
+		banner.setText("Testing!");
+
 
 
 	}
@@ -148,7 +151,7 @@ public class MainController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+		
 	public void back(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../view/Welcome.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
