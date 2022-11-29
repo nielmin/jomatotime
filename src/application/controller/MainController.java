@@ -92,7 +92,7 @@ public class MainController implements Initializable {
 					lbCount++;
 //					System.out.println("LB count: " + lbCount);
 //					System.out.println("Task #" + i + " removed.");
-					if (lbCount % 5 == 0 && lbCount != 0) {
+					if (lbCount % 4 == 0 && lbCount != 0) {
 						this.longBreak();
 						lbCount = 0;
 					}
@@ -165,13 +165,13 @@ public class MainController implements Initializable {
 		/**
 		 * 25 min is the default value for a working period.
 		 */
-		timer.setText("25:00");
+//		timer.setText("25:00");
 		banner.setText("Time to focus!");
 
 		/*
 		 * Demo value for a working period.
 		 */
-//		timer.setText("00:10");
+		timer.setText("00:10");
 	}
 	
 	/**
@@ -198,12 +198,12 @@ public class MainController implements Initializable {
 		 * 15 minutes is the default value for a long break.
 		 */
 //		timer.setText("15:00");
-		
+		banner.setText("Time for a long break!");
+
 		/**
 		 * Demo value for a long break.
 		 */
 		timer.setText("00:08");
-		banner.setText("Time for a long break!");
 
 	}
 	
