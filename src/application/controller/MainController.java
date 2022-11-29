@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.model.CDTask;
-import application.model.CDTimer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,12 +26,10 @@ public class MainController implements Initializable {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-//	private CDTimer countdownTime;
 	private CDTask countdown;
 
 	private Thread thread;
 	private ObservableList<String> tasksList = FXCollections.observableArrayList();
-	private ObservableList<String> doneList = FXCollections.observableArrayList("Hello", "World");
 
 	@FXML private Label timer;
 	@FXML private Label banner;
@@ -45,18 +42,16 @@ public class MainController implements Initializable {
 	@FXML private Button addTask;
 	@FXML private TextField task;
 	@FXML private ListView<String> tasks = new ListView<String>(tasksList);
-	@FXML private ListView<String> done = new ListView<String>(doneList);
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		//this.pomodoro();
 		tasks.setItems(tasksList);
 	}
 	
 	@FXML
 	public void handleStartButton() {
-		if (tasks.getItems().isEmpty()) {
+		
+		if (tasksList.isEmpty()) {
 			warning.setText("Please enter a task...");
 		}
 		else {
@@ -65,19 +60,22 @@ public class MainController implements Initializable {
 				warning.setText("Timer is already running");
 			}
 			else {
+				this.pomodoro();
 				startCountDown();
 			}
 		}
 	}
 	
 	public void startCountDown() {
-		
+
 		countdown = new CDTask(timer, tasks);
 
 		countdown.setOnSucceeded(e-> {
 			removeTask();
+			this.shortBreak();
+			startCountDown();
 		});
-		
+
 		thread = new Thread(countdown);
 		thread.setDaemon(true);			
 		thread.start();
@@ -124,22 +122,19 @@ public class MainController implements Initializable {
 //		timer.setText("00:10");
 //		banner.setText("Time to focus!");
 		banner.setText("Testing!");
-
-
-
 	}
 	
 	public void shortBreak() {
-		timer.setText("05:00");
-//		timer.setText("00:05");
+//		timer.setText("05:00");
+		timer.setText("00:05");
 
 		banner.setText("Time for a short break.");
 
 	}
 	
 	public void longBreak() {
-		timer.setText("15:00");
-//		timer.setText("00:08");
+//		timer.setText("15:00");
+		timer.setText("00:08");
 
 		banner.setText("Time for a long break!");
 

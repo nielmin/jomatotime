@@ -7,20 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WelcomeController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WelcomeController">
    <children>
-      <Button layoutX="196.0" layoutY="190.0" mnemonicParsing="false" onAction="#handle" text="Get to studying " />
-      <Label alignment="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="110.0" prefWidth="383.0" text="Welcome to Jomato Time" textFill="#ee7a7a">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="171.0" layoutY="178.0" mnemonicParsing="false" onAction="#handle" prefHeight="39.0" prefWidth="160.0" text="Get to Studying " textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="59.0" layoutY="68.0" prefHeight="110.0" prefWidth="383.0" text="Welcome to Jomato Time" textAlignment="CENTER" textFill="#ee7a7a">
          <font>
             <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <ImageView fitHeight="163.0" fitWidth="155.0" layoutX="14.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="163.0" fitWidth="155.0" layoutX="59.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../data/PngItem_615463.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="305.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="198.0" layoutX="261.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../data/PngItem_1841817.png" />
          </image>

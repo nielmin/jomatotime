@@ -5,37 +5,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InstructionsController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #202A44;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InstructionsController">
    <children>
-      <Button fx:id="back" layoutX="172.0" layoutY="454.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="41.0" prefWidth="135.0" text="Back" textAlignment="CENTER">
+      <Button fx:id="back" layoutX="19.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="7.0" prefWidth="65.0" text="Back" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="63.0" layoutY="50.0" prefHeight="130.0" prefWidth="374.0" text="How to Use Jomato Timer" textAlignment="CENTER" textFill="#ee7a7a" wrapText="true">
          <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
-      <Label alignment="CENTER" layoutX="61.0" layoutY="81.0" prefHeight="80.0" prefWidth="371.0" text="How to Use Jomato Timer" textAlignment="CENTER" textFill="#38a45c">
-         <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="System Bold Italic" size="42.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="161.0" prefHeight="46.0" prefWidth="371.0" text="Choose a single task you will focus on and write it down" textFill="#ee7a7a">
+      <Label contentDisplay="CENTER" layoutX="84.0" layoutY="180.0" prefHeight="65.0" prefWidth="320.0" text="1) Choose a single task you will focus on and write it down." textFill="WHITE" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="207.0" prefHeight="46.0" prefWidth="371.0" text="Work on the task for 25 minutes until the timer ends" textFill="#ee7a7a">
+      <Label contentDisplay="CENTER" layoutX="84.0" layoutY="245.0" prefHeight="65.0" prefWidth="320.0" text="2) Work on the task for 25 minutes until the timer ends." textFill="WHITE" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="253.0" prefHeight="46.0" prefWidth="371.0" text="Take a short 5 minute break" textFill="#ee7a7a">
+      <Label contentDisplay="CENTER" layoutX="84.0" layoutY="300.0" prefHeight="65.0" prefWidth="320.0" text="3) Take a short 5 minute break." textFill="WHITE" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="299.0" prefHeight="46.0" prefWidth="371.0" text="Work for another 25 minutes" textFill="#ee7a7a">
+      <Label contentDisplay="CENTER" layoutX="84.0" layoutY="342.0" prefHeight="65.0" prefWidth="320.0" text="4) Work for another 25 minutes." textFill="WHITE" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font></Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="345.0" prefHeight="46.0" prefWidth="451.0" text="After 4 work periods of 25 minutes, take a longer 15 minute break" textAlignment="CENTER" textFill="#ee7a7a">
+      <Label contentDisplay="CENTER" layoutX="84.0" layoutY="398.0" prefHeight="65.0" prefWidth="320.0" text="5) After 4 work periods of 25 minutes, take a longer 15 minute break." textFill="WHITE" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font></Label>
    </children>
 </AnchorPane>
