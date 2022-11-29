@@ -15,6 +15,9 @@ public class CreditsController implements EventHandler<ActionEvent>{
 	private Scene scene;
 	private Parent root;
 	
+	/**
+	 * Swichtes from the Credits view to the Main view.
+	 */
 	public void handle (ActionEvent event) {
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));

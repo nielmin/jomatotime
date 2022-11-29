@@ -6,7 +6,11 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-
+/**
+ * Defunct model. See CDTask.java
+ * @author daniel
+ *
+ */
 public class CDTimer implements Runnable {
 	@FXML private Label timer;
 	@FXML private ListView<String> tasks;

@@ -15,6 +15,9 @@ public class WelcomeController implements EventHandler<ActionEvent>{
 	private Scene scene;
 	private Parent root;
 	
+	/**
+	 * Switches from the Welcome view to the main view of the app.
+	 */
 	public void handle (ActionEvent event) {
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));

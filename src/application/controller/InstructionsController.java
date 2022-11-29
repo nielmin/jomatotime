@@ -13,6 +13,11 @@ public class InstructionsController {
 	private Scene scene;
 	private Parent root;
 	
+	/**
+	 * Switches to the main view of the app.
+	 * @param event
+	 * @throws IOException
+	 */
 	public void switchToMain(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -20,13 +25,6 @@ public class InstructionsController {
 		stage.setTitle("Instructions");
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.show();
-	}
-	public void switchToDone(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("../view/Done.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
 		stage.show();
 	}
 }

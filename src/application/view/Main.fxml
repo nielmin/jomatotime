@@ -14,7 +14,7 @@
       <Button fx:id="pomodoro" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="72.0" mnemonicParsing="false" onAction="#pomodoro" text="Pomodoro" textAlignment="CENTER" />
       <Button fx:id="lBreak" alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="72.0" mnemonicParsing="false" onAction="#longBreak" text="Long Break" textAlignment="CENTER" />
       <Button fx:id="addTask" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="454.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" textAlignment="CENTER" />
-      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleStart" prefHeight="25.0" prefWidth="92.0" text="Start" textAlignment="CENTER">
+      <Button fx:id="start" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="92.0" text="Start" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>

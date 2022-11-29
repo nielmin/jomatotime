@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-public class CDTask extends Task<String>{
+public class CDTask extends Task<Void>{
 	@FXML private Label timer;
 	@FXML private ListView<String> tasks;
 	
@@ -24,25 +24,30 @@ public class CDTask extends Task<String>{
 		this.tasks = tasks;
 	}
 	
+	/**
+	 * Logic for an accurrate countdown timer.
+	 */
 	@Override
-	protected String call() throws Exception {
+	protected Void call() throws Exception {
+
 		DecimalFormat dFormat = new DecimalFormat("00");
 		timer.getText();
 		while (true) {
 			if (this.isCancelled()) {
-//				System.out.println("Cancelled");
 				break;
 			}
-			else {
-//				System.out.println("Not Cancelled");
-			}
+
 			parts = timer.getText().split(":");
 		
 			ddMin = parts[0];
 			ddSec = parts[1];
 			min = Integer.parseInt(ddMin);
 			sec = Integer.parseInt(ddSec);
-
+			
+			if (min == 0 && sec == 0) {
+				break;
+			}
+			
 			sec--;
 
 			ddMin = dFormat.format(min);
@@ -60,10 +65,7 @@ public class CDTask extends Task<String>{
 					timer.setText(ddMin + ":" + ddSec);
 				}		
 			});
-			if (min == 0 && sec == 0) {
-				System.out.println("Countdown finished!");
-				break;
-			}
+		
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
