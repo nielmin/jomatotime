@@ -12,6 +12,8 @@ The original technique has six steps:
 6. After three pomodoros are done, take the fourth pomodoro and then take a long break (typically 20 to 30 minutes). 
 Once the long break is finished, return to step 2.
 
+## [Demo Video](https://youtu.be/Roi25PA53OM)
+
 ### TODO
 - [X] Implement a countdown timer from default values.
 - [X] The number of tasks in the list corresponds to how many times the timer will run.

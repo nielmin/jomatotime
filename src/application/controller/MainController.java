@@ -29,7 +29,7 @@ public class MainController implements Initializable {
 	private CDTask countdown;
 
 	private Thread thread;
-	private ObservableList<String> tasksList = FXCollections.observableArrayList("Study", "Cry", "Cry harder", "Study and cry harder", "Death", "More Death");
+	private ObservableList<String> tasksList = FXCollections.observableArrayList("Study", "Cry", "Cry harder", "Study and cry harder", "Death");
 
 	@FXML private Label timer;
 	@FXML private Label banner;
@@ -174,7 +174,7 @@ public class MainController implements Initializable {
 		/*
 		 * Demo value for a working period.
 		 */
-		timer.setText("00:10");
+		timer.setText("00:06");
 	}
 	
 	/**
@@ -190,7 +190,7 @@ public class MainController implements Initializable {
 		/*
 		 * Demo value for a short beeak;
 		 */
-		timer.setText("00:05");
+		timer.setText("00:03");
 	}
 	
 	/**
@@ -206,7 +206,7 @@ public class MainController implements Initializable {
 		/**
 		 * Demo value for a long break.
 		 */
-		timer.setText("00:08");
+		timer.setText("00:5");
 
 	}
 	
