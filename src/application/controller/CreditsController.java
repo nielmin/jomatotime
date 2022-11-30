@@ -27,7 +27,7 @@ public class CreditsController implements EventHandler<ActionEvent>{
 		}
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
-		stage.setTitle("Instructions");
+		stage.setTitle("Jomato Timer");
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();

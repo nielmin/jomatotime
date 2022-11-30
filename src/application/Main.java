@@ -18,7 +18,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root,500,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Jomato Timer");
+			primaryStage.setTitle("Welcome");
 			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {

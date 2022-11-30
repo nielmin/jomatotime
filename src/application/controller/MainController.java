@@ -29,7 +29,7 @@ public class MainController implements Initializable {
 	private CDTask countdown;
 
 	private Thread thread;
-	private ObservableList<String> tasksList = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+	private ObservableList<String> tasksList = FXCollections.observableArrayList("Study", "Cry", "Cry harder", "Study and cry harder", "Death", "More Death");
 
 	@FXML private Label timer;
 	@FXML private Label banner;
@@ -90,25 +90,28 @@ public class MainController implements Initializable {
 				if (flag == 0 || flag == 1) {
 					removeTask();
 					lbCount++;
-//					System.out.println("LB count: " + lbCount);
-//					System.out.println("Task #" + i + " removed.");
 					if (lbCount % 4 == 0 && lbCount != 0) {
 						this.longBreak();
 						lbCount = 0;
+						flag = 2;
+					}
+					else if (tasksList.isEmpty()) {
+						System.out.println("All tasks done");
 					}
 					else {
 						flag = 2;
 						this.shortBreak();
 					}
 				}
-				else if (flag == 2) {
-					this.pomodoro();
-					flag = 1;
-				}
+//				else if (flag == 2) {
+//					flag = 1;
+//					this.pomodoro();
+//				}
 				else {
 					flag = 1;
 					this.pomodoro();
 				}
+				System.out.println(flag);
 				startCountDown();
 			});
 		}
@@ -216,6 +219,7 @@ public class MainController implements Initializable {
 		root = FXMLLoader.load(getClass().getResource("../view/Instructions.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
+		stage.setTitle("Instructions");
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -229,6 +233,7 @@ public class MainController implements Initializable {
 		root = FXMLLoader.load(getClass().getResource("../view/Welcome.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
+		stage.setTitle("Welcome");
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -242,6 +247,7 @@ public class MainController implements Initializable {
 		root = FXMLLoader.load(getClass().getResource("../view/Credits.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
+		stage.setTitle("Credits");
 		stage.setScene(scene);
 		stage.show();
 	}
